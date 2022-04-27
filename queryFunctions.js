@@ -20,8 +20,8 @@ function allEmp() {
     });
 }
 
-function addDept() {
-    inquirer.prompt([
+async function addDept() {
+    await inquirer.prompt([
         {
             type: "input",
             name: "deptName",

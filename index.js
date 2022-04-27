@@ -22,7 +22,7 @@ function startApp() {
             choices: opt
         }
     ])
-        .then((ans) => {
+        .then(async (ans) => {
             console.log(ans);
             switch (ans.userview) {
                 case opt[0]:
@@ -35,7 +35,7 @@ function startApp() {
                     queryFunctions.allEmp();
                     break;
                 case opt[3]:
-                    queryFunctions.addDept();
+                    await queryFunctions.addDept();
                     break;
                 // case opt[4]:
                 //     queryFunctions.addRole();
