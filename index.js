@@ -6,7 +6,11 @@ const queryFunctions = require('./queryFunctions');
 const opt = ["View all Departments", 
             "View all Roles", 
             "View all Employees",
-            ""
+            "Add a Department",
+            // "Add a Role",
+            // "Add an Employee",
+            // "Update an Employee",
+            // "Exit"
 ];
 
 function startApp() {
@@ -30,7 +34,20 @@ function startApp() {
                 case opt[2]:
                     queryFunctions.allEmp();
                     break;
-
+                case opt[3]:
+                    queryFunctions.addDept();
+                    break;
+                // case opt[4]:
+                //     queryFunctions.addRole();
+                //     break;
+                // case opt[5]:
+                //     queryFunctions.addEmp();
+                //     break;
+                // case opt[6]:
+                //     queryFunctions.updateEmp();
+                //     break;
+                // case opt[7]:
+                //     return;
                 default:
                     break;
             }
