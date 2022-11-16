@@ -8,9 +8,9 @@ const opt = ["View all Departments",
             "View all Employees",
             "Add a Department",
             "Add a Role",
-            // "Add an Employee",
+            "Add an Employee",
             // "Update an Employee",
-            // "Exit"
+            "Exit\n"
 ];
 
 function startApp() {
@@ -40,9 +40,9 @@ function startApp() {
                 case opt[4]:
                     await queryFunctions.addRole();
                     break;
-                // case opt[5]:
-                //     queryFunctions.addEmp();
-                //     break;
+                case opt[5]:
+                    await queryFunctions.addEmp();
+                    break;
                 // case opt[6]:
                 //     queryFunctions.updateEmp();
                 //     break;

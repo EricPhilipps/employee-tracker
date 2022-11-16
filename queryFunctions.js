@@ -37,12 +37,14 @@ async function addDept() {
 }
 
 async function addRole() {
+    // Was trying to use count and for loop to make an array of department names, 
+    // but couldn't figure out how to do it
     // const depts = [];
     // console.log(db.query(`SELECT COUNT(*) AS numberOfDepts FROM department`));
 
     // const deptLength = db.query()
 
-    // for (let i = 0; i < department.length; i++) {
+    // for (let i = 0; i < deptLength; i++) {
     //     depts[i] = db.query(`SELECT name, id FROM department`)
     // }
     await inquirer.prompt([
@@ -76,11 +78,57 @@ async function addRole() {
     })
 }
 
+async function addEmp() {
+    // const depts = [];
+    // console.log(db.query(`SELECT COUNT(*) AS numberOfDepts FROM department`));
+
+    // const deptLength = db.query()
+
+    // for (let i = 0; i < deptLength; i++) {
+    //     depts[i] = db.query(`SELECT name, id FROM department`)
+    // }
+    await inquirer.prompt([
+        {
+            type: "input",
+            name: "firstName",
+            message: "What is the first name of the Employee?"
+        },
+        {
+            type: "input",
+            name: "lastName",
+            message: "What is the last name of the Employee?"
+        },
+        {
+            type: "input",
+            name: "roleDept",
+            message: "What Role does this Employee have?"
+        },
+        {
+            type: "input",
+            name: "roleDept",
+            message: "Who is this Employee's manager?"
+        }
+    ])
+        .then((userEmp) => {
+            db.query(`INSERT INTO employee SET ?`,
+                {
+                    first_name: userEmp.firstName,
+                    last_name: userEmp.lastName,
+                    role_id: 1,
+                    manager_id: 1
+                }, 
+                function (err, results) {
+                if (err) throw err;
+                console.log(`${userEmp.firstName} ${userEmp.lastName} added to employees`);
+        });
+    })
+}
+
 module.exports = {
     allDepts,
     allRoles,
     allEmp,
     addDept,
     addRole,
-    // addEmp
+    addEmp
 }
